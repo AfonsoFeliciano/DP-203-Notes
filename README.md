@@ -1,6 +1,6 @@
 # DP-203-Notes
 
-## Distributing Data in Synapse Analytics
+## 1) Distributing Data in Synapse Analytics
 
 ### Round-Robin Distributed
 
