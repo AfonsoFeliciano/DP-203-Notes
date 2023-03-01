@@ -47,3 +47,14 @@ Full copy of the table is replicated to every node
 
 Best for: 
 1) Small lookup of dimension tables that are frequently joined with larger tables
+
+
+## 2) Pruning Data
+
+### Data Skipping
+
+Data 
+
+### Z-Ordering
+
+### Dynamic File Pruning (DFP)
