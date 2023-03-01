@@ -82,3 +82,7 @@ spark.databricks.optimizer.dynamicParitionPruning
 ```
 spark.databricks.optimizer.deltaTableSizeThreshold
 ```
+
+```
+spark.databricks.optimizer.deltaTableFilesThreshold
+```
