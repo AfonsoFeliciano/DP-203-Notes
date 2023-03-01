@@ -53,7 +53,7 @@ Best for:
 <br>
 
 ## 2) Pruning Data
-<br>
+
 
 ### Data Skipping
 
