@@ -96,8 +96,37 @@ spark.databricks.optimizer.deltaTableFilesThreshold
 
 <br>
 
+**Rowstore**
+- Row Compression
+- Page Compression
+
+**Columnstore**
+- Columnstore compression by default
+- Columnstore archival compression
+
+
+<br>
+
 ### Compression of Rowstore objects
+
+- Available in azure SQL database
+- Row or page compression can be enabled or disabled both online or offline
+- Disk space requirements when enabling or disabling are the same as when you are creating or rebuilding an index
+
+<br>
+
+Example
+
+```
+ALTER TABLE TABLE1 REBUILD PARTITION = ALL WITH (DATA_COMPRESSION = ROW)
+```
 
 <br>
 
 ### Compression of Columnstore objects
+
+
+- Is enabled by default
+- Used by clustered index or nonclustered columnstore index
+- Indexes with columnstore archival compression are slower thant those without it
+- Use only to reduce the storage size of data that is not accessed frequently
