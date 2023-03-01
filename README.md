@@ -17,6 +17,33 @@ Best for:
 
 Data is distributed deterministically by using a hash function
 
+Best for: 
+1) Large tables like fact tables or historical transaction tables
+2) Tables with frequent inserts, updates and deletes
+
+Example of DDL
+```
+
+CREATE TABLE YOUR_TABLE 
+(
+    COLUMN1 INT NOT NULL, 
+    COLUMN2 INT NOT NULL, 
+    COLUMN3 INT NOT NULL, 
+    COLUMN4 INT NOT NULL, 
+    COLUMN5 VARCHAR(20) 
+)
+WITH 
+(
+    CLUSTERED COLUMNSTORE INDEX
+    DISTRIBUTION = HASH(COLUMN1)
+)
+
+```
+
+
 ### Replicated
 
 Full copy of the table is replicated to every node
+
+Best for: 
+1) Small lookup of dimension tables that are frequently joined with larger tables
