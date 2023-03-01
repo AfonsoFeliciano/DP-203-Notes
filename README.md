@@ -13,6 +13,8 @@ Best for:
 4) Temporary staging table
 5) A simple starting point
 
+<br>
+
 ### Hash Distributed
 
 Data is distributed deterministically by using a hash function
@@ -39,7 +41,7 @@ WITH
 )
 
 ```
-
+<br>
 
 ### Replicated
 
@@ -48,13 +50,21 @@ Full copy of the table is replicated to every node
 Best for: 
 1) Small lookup of dimension tables that are frequently joined with larger tables
 
+<br>
 
 ## 2) Pruning Data
+<br>
 
 ### Data Skipping
 
-Data 
+Data skipping is automatically collected when data is written into a Delta Table
+
+Delta Lake on Databricks uses the minimum and maximum values to speed up queries
+
+<br>
 
 ### Z-Ordering
+
+<br>
 
 ### Dynamic File Pruning (DFP)
