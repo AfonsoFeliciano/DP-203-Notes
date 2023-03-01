@@ -65,6 +65,8 @@ Delta Lake on Databricks uses the minimum and maximum values to speed up queries
 
 ### Z-Ordering
 
+Is a technique for colocating related information in the same set of files and it is automatically used by the data skipping algorithms of delta lake on databricks to substantially reduce the amount of data to be read
+
 <br>
 
 ### Dynamic File Pruning (DFP)
