@@ -86,3 +86,18 @@ spark.databricks.optimizer.deltaTableSizeThreshold
 ```
 spark.databricks.optimizer.deltaTableFilesThreshold
 ```
+<br>
+
+## 3) Compressing Data
+
+<br>
+
+### Compression Options
+
+<br>
+
+### Compression of Rowstore objects
+
+<br>
+
+### Compression of Columnstore objects
