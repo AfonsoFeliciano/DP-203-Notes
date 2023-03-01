@@ -70,3 +70,5 @@ Is a technique for colocating related information in the same set of files and i
 <br>
 
 ### Dynamic File Pruning (DFP)
+
+Allows file to be skipped within partitions
