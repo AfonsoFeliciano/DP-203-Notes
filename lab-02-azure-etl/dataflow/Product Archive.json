@@ -1,0 +1,89 @@
+{
+	"name": "Product Archive",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "acweb_product",
+						"type": "DatasetReference"
+					},
+					"name": "acweb"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "acwe_arch_product_archive",
+						"type": "DatasetReference"
+					},
+					"name": "acwebarch"
+				}
+			],
+			"transformations": [
+				{
+					"name": "DateTransform"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ProductID as integer,",
+				"          Name as string,",
+				"          ProductNumber as string,",
+				"          Color as string,",
+				"          StandardCost as decimal(19,4),",
+				"          ListPrice as decimal(19,4),",
+				"          Size as string,",
+				"          Weight as decimal(8,2),",
+				"          ProductCategoryID as integer,",
+				"          ProductModelID as integer,",
+				"          SellStartDate as timestamp,",
+				"          SellEndDate as timestamp,",
+				"          DiscontinuedDate as timestamp,",
+				"          ThumbNailPhoto as binary,",
+				"          ThumbnailPhotoFileName as string,",
+				"          rowguid as string,",
+				"          ModifiedDate as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> acweb",
+				"acweb derive(SellStartDate = toDate(substring(toString(SellStartDate), 1, 10)),",
+				"          SellEndDate = toDate(substring(toString(SellEndDate), 1, 10)),",
+				"          DiscontinuedDate = toDate(substring(toString(DiscontinuedDate), 1, 10)),",
+				"          ModifiedDate = toDate(substring(toString(ModifiedDate), 1, 10))) ~> DateTransform",
+				"DateTransform sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          ProductID as integer,",
+				"          Name as string,",
+				"          ProductNumber as string,",
+				"          Color as string,",
+				"          StandardCost as decimal(19,4),",
+				"          ListPrice as decimal(19,4),",
+				"          Size as string,",
+				"          Weight as decimal(8,2),",
+				"          ProductCategoryID as integer,",
+				"          ProductModelID as integer,",
+				"          SellStartDate as date,",
+				"          SellEndDate as date,",
+				"          DiscontinuedDate as date,",
+				"          ThumbNailPhoto as binary,",
+				"          ThumbnailPhotoFileName as string,",
+				"          rowguid as string,",
+				"          ModifiedDate as date",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> acwebarch"
+			]
+		}
+	}
+}
