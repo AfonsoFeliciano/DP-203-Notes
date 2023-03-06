@@ -1,0 +1,17 @@
+{
+	"name": "uk_path",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "weather_data_lake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "uk1"
+			}
+		}
+	}
+}
