@@ -53,3 +53,57 @@ CREATE TABLE [dbo].[Weather](
  )
 ```
 32. Return to the Azure portal overview.
+
+## Copy the Weather Data Using Azure Data Factory
+
+1. Using the navigation at the top of the Azure portal, click the link next to Home to go back to the resource group.
+2. Select the link for the Azure Data Factory, which should begin with acadf.
+3. Click Open Azure Data Factory Studio.
+4. Click New, then Pipeline.
+5. Name the pipeline "Weather Load".
+6. Under Move & transform, drag and drop a Copy data task to the pipeline.
+7. Rename the task to "Copy Files".
+8. Switch to the Source tab, and click + New.
+9. Select Azure Data Lake Storage Gen2, and click Continue.
+10. Select JSON, and click Continue.
+11. Name the dataset "weather_files", and under Linked service, click + New.
+12. Name the linked service "weather_data_lake".
+13. For the Azure subscription, select the lab-provided subscription.
+14. For the Storage account name, select the acweather storage account.
+15. Click Test connection.
+16. Click Create.
+17. Click Ok.
+18. Next to File path type, click Wildcard file path.
+19. For the Wildcard paths {source container}, in the first entry field, enter *. In the second entry field, enter weather_*.json.
+20. Next to Additional columns, click + New.
+21. Add a column with the name source and the value &&FILEPATH.
+22. Add a second column with the name processed. For the value, click Add dynamic content.
+23. In the large entry field, enter **@pipeline().TriggerTime**, and click OK.
+24. Switch to the Sink tab, and click + New.
+25. Select Azure Synapse Analytics, and click Continue.
+26. Name the dataset "weather_table", and under Linked service, click + New.
+27. Name the linked service "weather_analytics".
+28. For the Azure subscription, select the lab-provided subscription.
+29. For the Server name, select the Synapse workspace.
+30. For the Database name, select the acsqlpool.
+31. For the User name and Password use the following credentials:
+* User name: delmar
+* Password: AwesomePassword!
+32. Click Test connection.
+33. Click Create.
+34. For the Table name, select dbo.Weather, and click Ok.
+35. Still on the Sink tab, ensure the Copy method is set to PolyBase.
+36. Switch to the Mapping tab, and click Import schemas.
+37. Click Ok.
+38. Switch to the Settings tab, and click Enable staging.
+39. Next to Staging account linked service, click + New.
+40. Name the linked service "admin_data_lake".
+41. For the Azure subscription, select the lab-provided subscription.
+42. For the Storage account name, select the acadmin storage account.
+43. Click Test connection.
+44. Click Create.
+45. Next to Storage Path, click Browse.
+46. Select stage, and click Ok.
+
+## Delete the Weather Files
+
