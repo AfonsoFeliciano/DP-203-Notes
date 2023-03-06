@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vulnerabilityAssessments_Default_storageContainerPath": {
+            "value": null
+        },
+        "workspaces_acanalyze_xv32_name": {
+            "value": null
+        },
+        "storageAccounts_acadminxv32_name": {
+            "value": null
+        },
+        "storageAccounts_acweatherxv32_name": {
+            "value": null
+        }
+    }
+}
