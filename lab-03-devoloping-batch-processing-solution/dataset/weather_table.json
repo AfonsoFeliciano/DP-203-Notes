@@ -1,0 +1,53 @@
+{
+	"name": "weather_table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "weather_analytics",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "country",
+				"type": "varchar"
+			},
+			{
+				"name": "state",
+				"type": "varchar"
+			},
+			{
+				"name": "city",
+				"type": "varchar"
+			},
+			{
+				"name": "high",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "low",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "conditions",
+				"type": "varchar"
+			},
+			{
+				"name": "source",
+				"type": "varchar"
+			},
+			{
+				"name": "processed",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Weather"
+		}
+	}
+}
