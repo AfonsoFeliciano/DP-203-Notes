@@ -1,0 +1,9 @@
+{
+	"name": "acadf-xv32",
+	"location": "westus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4df2e8f8-013b-4588-8411-288a9f9eae57",
+		"tenantId": "3617ef9b-98b4-40d9-ba43-e1ed6709cf0d"
+	}
+}
