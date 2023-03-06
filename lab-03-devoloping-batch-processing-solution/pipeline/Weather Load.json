@@ -17,9 +17,24 @@
 				"typeProperties": {
 					"source": {
 						"type": "JsonSource",
+						"additionalColumns": [
+							{
+								"name": "source",
+								"value": "$$FILEPATH"
+							},
+							{
+								"name": "processed",
+								"value": {
+									"value": "@pipeline().TriggerTime",
+									"type": "Expression"
+								}
+							}
+						],
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
+							"wildcardFolderPath": "*",
+							"wildcardFileName": "weather_*.json",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
