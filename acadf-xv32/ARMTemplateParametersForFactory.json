@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "acadf-xv32"
+		},
+		"admin_data_lake_connectionString": {
+			"value": ""
+		},
+		"weather_analytics_connectionString": {
+			"value": ""
+		},
+		"weather_data_lake_accountKey": {
+			"value": ""
+		},
+		"weather_data_lake_properties_typeProperties_url": {
+			"value": "https://acweatherxv32.dfs.core.windows.net/"
+		}
+	}
+}
