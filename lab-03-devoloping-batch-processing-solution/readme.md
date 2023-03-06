@@ -107,3 +107,28 @@ CREATE TABLE [dbo].[Weather](
 
 ## Delete the Weather Files
 
+1. In the Activities list, click General, and drag and drop a Delete activity to the pipeline.
+2. On the bottom, under General, name the activity "Delete USA Files".
+3. Switch to the Source tab, and click + New.
+4. Select Azure Data Lake Storage Gen2, and click Continue.
+5. Name the dataset "usa_path", and for the Linked service, select weather_data_lake.
+6. Under File path, click the folder icon, and select usa.
+7. Click Ok, and then Ok again.
+8. Change the File path type to Wildcard file path, and enter weather_*.json for the Wildcard file name.
+9. Switch to the Logging settings tab, and disable logging.
+10. Drag and drop a second Delete activity to the pipeline.
+11. Name the activity "Delete UK Files".
+12. Switch to the Source tab, and click + New.
+13. Select Azure Data Lake Storage Gen2, and click Continue.
+14. Name the dataset "uk_path", and for the Linked service, select weather_data_lake.
+15. Under File path, click the folder icon, and select uk1.
+16. Click Ok, and then Ok again.
+17. Change the File path type to Wildcard file path, and enter weather_*.json for the Wildcard file name.
+18. Switch to the Logging settings tab, and disable logging.
+19. Connect the Copy Files task to each Delete activity (dragging the arrows from each box), and click Debug.
+20. Once it has completed, and all tasks display a Succeeded status, go back to Azure Data Studio, and run the following query:
+21. select * from [dbo].[Weather]
+To verify that the files have been deleted, return to the Azure portal overview resource group, and open the acweather storage account.
+22. Click Containers and then select either of the 2 containers.
+23. Return to the Azure Data Factory tab, and click Publish all.
+24. Click Publish to make this your active pipeline.
