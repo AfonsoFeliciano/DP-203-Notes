@@ -1,0 +1,15 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccounts_acweatherpurj_name": {
+            "value": null
+        },
+        "databaseAccounts_accosmos_purjt_name": {
+            "value": null
+        },
+        "streamingjobs_weatheravg_purj_name": {
+            "value": null
+        }
+    }
+}
